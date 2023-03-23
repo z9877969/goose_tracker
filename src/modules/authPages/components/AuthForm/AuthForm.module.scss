@@ -1,0 +1,49 @@
+.form {
+  width: 480px;
+  padding: 40px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background-color: var(--main-white-color);
+}
+
+.formTitle {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--main-blue-color);
+}
+
+.label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--main-black-color);
+}
+
+.input:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+.input:last-child {
+  margin-bottom: 48px;
+}
+
+.btnSubmit {
+  height: 56px;
+  background-color: var(--main-blue-color);
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--main-white-color);
+
+  & svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 14px;
+  }
+}

@@ -1,0 +1,14 @@
+.container {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.link {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--main-blue-color);
+}

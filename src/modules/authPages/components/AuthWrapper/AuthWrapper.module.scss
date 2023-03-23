@@ -1,0 +1,5 @@
+.wrapper {
+  height: 100vh;
+  padding-top: calc((100vh - (424px + 24px + 24px)) / 2);
+  background-color: var(--auth-bg-color);
+}
