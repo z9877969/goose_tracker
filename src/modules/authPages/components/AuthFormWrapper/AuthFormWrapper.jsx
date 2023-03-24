@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import s from "./FormGroup.module.scss";
+import s from "./AuthFormWrapper.module.scss";
 
-export const FormGroup = ({ children, linkTitle, redirectTo }) => {
+export const AuthFormWrapper = ({ children, linkTitle, redirectTo }) => {
   return (
     <div className={s.container}>
       {children}

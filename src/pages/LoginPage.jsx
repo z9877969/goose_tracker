@@ -1,25 +1,24 @@
-import { AuthForm, AuthWrapper, FormGroup } from "../modules/authPages";
-
-const options = [
-  {
-    name: "email",
-    placeholder: "Enter email",
-    label: "Email",
-  },
-  {
-    name: "password",
-    placeholder: "Enter password",
-    label: "Password",
-    type: "password",
-  },
-];
+import {
+  loginFormInitialValues,
+  loginFormOptions,
+} from "modules/authPages/options";
+import { AuthForm, AuthWrapper, AuthFormWrapper } from "../modules/authPages";
 
 const LoginPage = () => {
+  const handleUserLogin = (userData) => {
+    console.log("userData :>> ", userData);
+  };
+
   return (
     <AuthWrapper>
-      <FormGroup linkTitle={"Sign up"} redirectTo="/register">
-        <AuthForm options={options} formTitle={"Log in"} />
-      </FormGroup>
+      <AuthFormWrapper linkTitle={"Sign up"} redirectTo="/register">
+        <AuthForm
+          options={loginFormOptions}
+          formTitle={"Log in"}
+          initialValues={loginFormInitialValues}
+          onSubmit={handleUserLogin}
+        />
+      </AuthFormWrapper>
     </AuthWrapper>
   );
 };
