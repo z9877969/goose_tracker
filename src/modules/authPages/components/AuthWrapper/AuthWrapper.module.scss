@@ -2,4 +2,14 @@
   height: 100vh;
   padding-top: calc((100vh - (424px + 24px + 24px)) / 2);
   background-color: var(--auth-bg-color);
+
+  @media screen and (min-width: 1200px) {
+    background: url(../../images/roket.png), url(../../images/roket-message.png),
+      var(--auth-bg-color);
+    background-repeat: no-repeat;
+    background-position-x: calc(50% + (480px / 2) + (368px / 2) + 52px),
+      calc(50% + (480px / 2) + (207px / 2) + 156px);
+    background-position-y: calc(50% + 212px - 66px),
+      calc(50% + 212px - 66px - (717px / 2) + (174px / 2) + 76px);
+  }
 }
