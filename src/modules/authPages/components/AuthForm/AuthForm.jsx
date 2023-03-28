@@ -8,6 +8,7 @@ export const AuthForm = ({
   options,
   initialValues = {},
   onSubmit,
+  submitBtnTitle,
 }) => {
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues,
@@ -33,7 +34,7 @@ export const AuthForm = ({
         </label>
       ))}
       <Button className={s.btnSubmit} type="submit">
-        <span>Log In</span>
+        <span>{submitBtnTitle}</span>
         <svg>
           <use href={sprite + "#icon-arrow-exit"}></use>
         </svg>

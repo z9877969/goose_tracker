@@ -1,0 +1,56 @@
+// .container {
+
+// }
+
+.title {
+  margin-bottom: 26px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #7e7d82;
+}
+
+.navItem {
+  &:not(:last-child) {
+    margin-bottom: 26px;
+  }
+}
+
+.navLink {
+  width: 241px;
+  height: 56px;
+  padding-left: 23px;
+
+  display: flex;
+  align-items: center;
+
+  // background-color: #e3f3ff;
+  border-radius: 8px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #84828a;
+
+  text-decoration: none;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 13px;
+    stroke: #84828a;
+    stroke-width: 2px;
+    fill: none;
+  }
+
+  &.active {
+    background-color: #e3f3ff;
+
+    color: #3e85f3;
+
+    & svg {
+      stroke: #3e85f3;
+    }
+  }
+}

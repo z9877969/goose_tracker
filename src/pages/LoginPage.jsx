@@ -2,11 +2,15 @@ import {
   loginFormInitialValues,
   loginFormOptions,
 } from "modules/authPages/options";
+import { useDispatch } from "react-redux";
+import { loginUser } from "redux/auth/authOperations";
 import { AuthForm, AuthWrapper, AuthFormWrapper } from "../modules/authPages";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const handleUserLogin = (userData) => {
     console.log("userData :>> ", userData);
+    dispatch(loginUser(userData));
   };
 
   return (
@@ -17,6 +21,7 @@ const LoginPage = () => {
           formTitle={"Log in"}
           initialValues={loginFormInitialValues}
           onSubmit={handleUserLogin}
+          submitBtnTitle="Log in"
         />
       </AuthFormWrapper>
     </AuthWrapper>

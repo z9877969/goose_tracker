@@ -1,0 +1,58 @@
+.container {
+  width: 289px;
+  height: 100vh;
+  background-color: var(--main-white-color);
+  border-right: 1px solid #dce3e580;
+  padding: 24px;
+  padding-top: 32px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  font-family: var(--sidebar-title-font);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--main-blue-color);
+
+  text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
+    0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
+
+  &::before {
+    content: "";
+    display: block;
+    width: 71px;
+    height: 68px;
+    background-image: url(../../images/goose-sidebar-title.png);
+    margin-right: 10px;
+    background-color: red;
+  }
+}
+
+.btnLogout {
+  width: 141px;
+  height: 56px;
+  margin-top: auto;
+
+  background: var(--main-blue-color);
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: var(--main-white-color);
+
+  & svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 11px;
+    stroke: var(--main-white-color);
+    fill: none;
+  }
+}
