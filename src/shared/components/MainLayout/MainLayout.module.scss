@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  min-width: 1440px;
+}
+
+.pageWrapper {
+  padding: 32px;
+  padding-top: 40px;
+  background-color: #f7f6f9;
+  flex-grow: 1;
+}

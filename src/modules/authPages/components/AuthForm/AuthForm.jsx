@@ -13,7 +13,6 @@ export const AuthForm = ({
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues,
     onSubmit: (values) => {
-      console.log("object");
       onSubmit(values);
     },
   });

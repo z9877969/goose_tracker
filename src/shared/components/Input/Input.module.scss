@@ -1,18 +1,5 @@
+@import "../../styles/mixins";
+
 .input {
-  height: 54px;
-  width: 100%;
-  padding-left: 18px;
-
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-  color: var(--main-black-color);
-
-  background: none;
-  border: 1px solid #dce3e599;
-  border-radius: 8px;
-
-  &::placeholder {
-    color: #dce3e5;
-  }
+  @include main-input;
 }

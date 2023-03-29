@@ -1,0 +1,19 @@
+@import "../../../../shared/styles/mixins";
+
+.input {
+  @include visually-hidden;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 14px;
+
+  &.light {
+    fill: var(--main-blue-color);
+  }
+
+  &.dark {
+    fill: green;
+  }
+}

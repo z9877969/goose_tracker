@@ -1,0 +1,28 @@
+.formWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// .fieldsWrapper {
+// }
+
+.dataFieldsWrapper {
+  display: flex;
+  column-gap: 50px;
+}
+
+.btnSubmitTitle {
+  width: 262px;
+  height: 46px;
+  display: block;
+  margin: 0 auto;
+  margin-top: auto;
+  background-color: var(--main-blue-color);
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--main-white-color);
+}

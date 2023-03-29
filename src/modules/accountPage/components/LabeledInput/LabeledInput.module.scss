@@ -1,0 +1,21 @@
+.label {
+  display: block;
+
+  & input {
+    height: 46px;
+  }
+}
+
+.title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--main-black-color);
+  margin-bottom: 8px;
+}
+
+.fullSize {
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}

@@ -1,0 +1,77 @@
+@import "../../../../shared/styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 44px;
+}
+
+.label {
+  position: relative;
+  display: block;
+  width: 124px;
+  height: 124px;
+  margin-bottom: 20px;
+
+  &::after {
+    position: absolute;
+    right: 24px;
+    bottom: -6px;
+
+    display: block;
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-color: var(--main-blue-color);
+    border-radius: 50%;
+    background-image: url(../../icons/plus.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-position: center;
+  }
+}
+
+@mixin avatarContainer {
+  width: 124px;
+  height: 124px;
+  border: 2px solid var(--main-blue-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder {
+  @include avatarContainer;
+  background-color: darkgoldenrod;
+
+  & svg {
+    width: 50%;
+    height: 50%;
+    stroke: var(--main-white-color);
+  }
+}
+
+.image {
+  @include avatarContainer;
+}
+
+.field {
+  // border
+  @include visually-hidden;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  color: #343434;
+  margin-bottom: 8px;
+}
+.status {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #616161;
+}

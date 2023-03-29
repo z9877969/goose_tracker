@@ -9,7 +9,6 @@ import { AuthForm, AuthWrapper, AuthFormWrapper } from "../modules/authPages";
 const LoginPage = () => {
   const dispatch = useDispatch();
   const handleUserLogin = (userData) => {
-    console.log("userData :>> ", userData);
     dispatch(loginUser(userData));
   };
 

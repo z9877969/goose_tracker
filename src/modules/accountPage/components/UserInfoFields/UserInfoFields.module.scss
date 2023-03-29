@@ -1,0 +1,18 @@
+.conatainer {
+  width: 354px;
+
+  // & label {
+  //   display: block;
+  // }
+}
+.nameWrapper {
+  display: flex;
+  column-gap: 14px;
+  margin-bottom: 24px;
+}
+
+.fullField {
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}

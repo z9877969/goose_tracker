@@ -1,0 +1,29 @@
+.wrapper {
+  width: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userName {
+  width: 56px;
+  margin-right: 14px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  color: var(--main-black-color);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--main-blue-color);
+  border-radius: 50%;
+
+  &.userName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+  }
+}
