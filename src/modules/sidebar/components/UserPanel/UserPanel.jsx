@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import s from "./UserPanel.module.scss";
 import { sprite } from "shared/icons";
 import clsx from "clsx";
+import { routes } from "shared/services/routes";
 
 const getActiveClassName = ({ isActive }) =>
   clsx(s.navLink, isActive && s.active);
@@ -12,7 +13,7 @@ const UserPanel = () => {
       <h2 className={s.title}>User Panel</h2>
       <ul>
         <li className={s.navItem}>
-          <NavLink to="/account" className={getActiveClassName}>
+          <NavLink to={routes.ACCOUNT} className={getActiveClassName}>
             <svg>
               <use href={sprite + "#icon-user-check"}></use>
             </svg>
@@ -20,7 +21,10 @@ const UserPanel = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/calendar" className={getActiveClassName}>
+          <NavLink
+            to={`${routes.CALENDAR}/${routes.CALENDAR_MONTH}`}
+            className={getActiveClassName}
+          >
             <svg>
               <use href={sprite + "#icon-calendar-check"}></use>
             </svg>

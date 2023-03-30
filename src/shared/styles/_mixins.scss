@@ -29,4 +29,8 @@
   &::placeholder {
     color: #dce3e5;
   }
+
+  &:focus {
+    outline: 2px solid darkgrey;
+  }
 }

@@ -42,6 +42,10 @@ export const UserForm = () => {
     // eslint-disable-next-line
     []
   );
+  const setBirthday = useCallback((date) => {
+    setFieldValue("birthday", date);
+    // eslint-disable-next-line
+  }, []);
 
   const userInfoFormData = { name, birthday, email };
   const userContactsFormData = { phone, skype };
@@ -52,7 +56,11 @@ export const UserForm = () => {
       <div className={s.fieldsWrapper}>
         <UserAvatarField setAvatar={setAvatar} formData={userAvatarFormData} />
         <div className={s.dataFieldsWrapper}>
-          <UserInfoFields formData={userInfoFormData} onChange={handleChange} />
+          <UserInfoFields
+            formData={userInfoFormData}
+            onChange={handleChange}
+            setBirthday={setBirthday}
+          />
           <UserContactsFields
             formData={userContactsFormData}
             onChange={handleChange}

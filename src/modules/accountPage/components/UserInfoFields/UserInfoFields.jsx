@@ -1,31 +1,27 @@
+import { DatePicker } from "../DatePicker/DatePicker";
 import { LabeledInput } from "../LabeledInput/LabeledInput";
 import s from "./UserInfoFields.module.scss";
 
-export const UserInfoFields = ({ formData, onChange }) => {
+export const UserInfoFields = ({ formData, onChange, setBirthday }) => {
   const { name, email, birthday } = formData;
   return (
     <div className={s.conatainer}>
-      <div className={s.nameWrapper}>
-        <LabeledInput
-          onChange={onChange}
-          name="name"
-          value={name}
-          title={"First Name"}
-        />
-        <LabeledInput
-          onChange={onChange}
-          name="name"
-          value={name}
-          title={"Last Name"}
-        />
-      </div>
+      <LabeledInput
+        onChange={onChange}
+        name="name"
+        value={name}
+        title={"Name"}
+        fullSize
+      />
       <LabeledInput
         onChange={onChange}
         name="birthday"
         value={birthday}
         fullSize
         title="Birthday"
-      />
+      >
+        <DatePicker setBirthday={setBirthday} />
+      </LabeledInput>
       <LabeledInput
         onChange={onChange}
         name="email"

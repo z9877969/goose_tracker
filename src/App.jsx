@@ -34,7 +34,20 @@ const App = () => {
           element={<PrivateRoute component={<MainLayout />} />}
         >
           <Route path={routes.ACCOUNT} element={<AccountPage />} />
-          <Route path={routes.CALENDAR} element={<CalendarPage />} />
+          <Route path={routes.CALENDAR} element={<CalendarPage />}>
+            <Route
+              path={routes.CALENDAR_MONTH}
+              element={<h2>Calendar Month Table</h2>}
+            />
+            <Route
+              path={routes.CALENDAR_WEEK}
+              element={<h2>Calendar Week Table</h2>}
+            />
+            <Route
+              path={routes.CALENDAR_DAY}
+              element={<h2>Calendar Day Table</h2>}
+            />
+          </Route>
         </Route>
         <Route path="*" element={<Navigate to={routes.CALENDAR} />} />
       </Routes>
