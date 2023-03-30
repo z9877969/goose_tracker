@@ -49,7 +49,12 @@ const App = () => {
             />
           </Route>
         </Route>
-        <Route path="*" element={<Navigate to={routes.CALENDAR} />} />
+        <Route
+          path="*"
+          element={
+            <Navigate to={`${routes.CALENDAR}/${routes.CALENDAR_MONTH}`} />
+          }
+        />
       </Routes>
     </>
   );

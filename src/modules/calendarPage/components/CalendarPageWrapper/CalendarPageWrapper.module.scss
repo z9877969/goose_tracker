@@ -2,4 +2,5 @@
 
 .wrapper {
   @include page-wrapper;
+  height: calc(100vh - 148px - 34px - 32px);
 }

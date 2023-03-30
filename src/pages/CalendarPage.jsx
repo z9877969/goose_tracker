@@ -1,11 +1,14 @@
+import { CalendarPageWrapper, CalendarToolbars } from "modules/calendarPage";
 import { Outlet } from "react-router-dom";
 import { Container } from "shared/components";
 
 const CalendarPage = () => {
   return (
     <Container>
-      <h2>CalendarToolbar</h2>
-      <Outlet />
+      <CalendarToolbars />
+      <CalendarPageWrapper>
+        <Outlet />
+      </CalendarPageWrapper>
     </Container>
   );
 };
