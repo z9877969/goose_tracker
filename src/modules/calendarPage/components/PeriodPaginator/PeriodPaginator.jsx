@@ -20,10 +20,10 @@ export const PeriodPaginator = ({ periodType, date, setDate }) => {
   const handleNextPeriod = () => {
     const prevPeriodDate =
       periodType === routes.CALENDAR_MONTH
-        ? moment(date).subtract(1, "months").format("YYYY-MM-DD")
+        ? moment(date).add(1, "months").format("YYYY-MM-DD")
         : periodType === routes.CALENDAR_WEEK
-        ? moment(date).subtract(1, "weeks").format("YYYY-MM-DD")
-        : moment(date).subtract(1, "days").format("YYYY-MM-DD");
+        ? moment(date).add(1, "weeks").format("YYYY-MM-DD")
+        : moment(date).add(1, "days").format("YYYY-MM-DD");
     setDate(prevPeriodDate);
   };
 
@@ -44,6 +44,8 @@ export const PeriodPaginator = ({ periodType, date, setDate }) => {
         return firstDayYear !== lastDayYear || firstDayMonth !== lastDayMonth
           ? `${firstDayDate} ${firstDayMonth} ${firstDayYear} - ${lastDayDate} ${lastDayMonth} ${lastDayYear}`
           : `${firstDayDate} - ${lastDayDate} ${lastDayMonth} ${firstDayYear}`;
+      case routes.CALENDAR_DAY:
+        return moment(date).format("DD MMMM YYYY");
       default:
         return;
     }

@@ -34,7 +34,7 @@ const App = () => {
           element={<PrivateRoute component={<MainLayout />} />}
         >
           <Route path={routes.ACCOUNT} element={<AccountPage />} />
-          <Route path={routes.CALENDAR} element={<CalendarPage />}>
+          <Route path={routes.CALENDAR + "/*"} element={<CalendarPage />}>
             <Route
               path={routes.CALENDAR_MONTH}
               element={<h2>Calendar Month Table</h2>}

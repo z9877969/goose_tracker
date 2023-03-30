@@ -15,7 +15,12 @@ export const Header = () => {
   return (
     <header className={s.header}>
       <Container className={s.wrapper}>
-        <h1 className={s.mainTitle}>{mainTitles[pathname]}</h1>
+        {pathname === routes.ACCOUNT && (
+          <h1 className={s.mainTitle}>{mainTitles[routes.ACCOUNT]}</h1>
+        )}
+        {pathname.startsWith(routes.CALENDAR) && (
+          <h1 className={s.mainTitle}>{mainTitles[routes.CALENDAR]}</h1>
+        )}
         <ThemeSwitcher />
         <UserBar />
       </Container>
