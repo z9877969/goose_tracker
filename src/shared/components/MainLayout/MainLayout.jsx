@@ -21,7 +21,6 @@ export const MainLayout = () => {
         <div className={s.pageWrapper}>
           <Header />
           <Outlet />
-          {/* {console.log(<Outlet />)} */}
         </div>
       </div>
     </>

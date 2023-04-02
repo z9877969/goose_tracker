@@ -2,8 +2,8 @@
 
 .wrapper {
   @include page-wrapper;
-  height: calc(100vh - 148px - 34px - 32px);
+  height: auto;
   padding: 0;
   border-radius: unset;
-  // background-color: unset;
+  background-color: unset;
 }

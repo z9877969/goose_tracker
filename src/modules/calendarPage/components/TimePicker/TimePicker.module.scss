@@ -1,0 +1,10 @@
+@import "../../../../shared/styles/mixins";
+
+// .timePicker {
+//   & .input {
+//     @include main-input;
+//   }
+// }
+.input {
+  @include main-input;
+}

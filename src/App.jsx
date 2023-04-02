@@ -10,6 +10,8 @@ import { routes } from "shared/services/routes";
 import AccountPage from "pages/AccountPage";
 import { getUserInfo } from "redux/auth/authOperations";
 import CalendarPage from "pages/CalendarPage";
+import CalendarMonthTable from "modules/calendarPage/components/MonthCalendarTable/MonthCalendarTable";
+import ChoosedMonth from "modules/calendarPage/components/ChoosedMonth/ChoosedMonth";
 
 const App = () => {
   const d = useDispatch();
@@ -34,19 +36,10 @@ const App = () => {
           element={<PrivateRoute component={<MainLayout />} />}
         >
           <Route path={routes.ACCOUNT} element={<AccountPage />} />
-          <Route path={routes.CALENDAR + "/*"} element={<CalendarPage />}>
-            <Route
-              path={routes.CALENDAR_MONTH}
-              element={<h2>Calendar Month Table</h2>}
-            />
-            <Route
-              path={routes.CALENDAR_WEEK}
-              element={<h2>Calendar Week Table</h2>}
-            />
-            <Route
-              path={routes.CALENDAR_DAY}
-              element={<h2>Calendar Day Table</h2>}
-            />
+          <Route path={routes.CALENDAR} element={<CalendarPage />}>
+            <Route path={routes.CALENDAR_MONTH} element={<ChoosedMonth />} />
+            <Route path={routes.CALENDAR_WEEK} element={<h2>ChoosedWeek</h2>} />
+            <Route path={routes.CALENDAR_DAY} element={<h2>ChoosedDay</h2>} />
           </Route>
         </Route>
         <Route

@@ -63,8 +63,8 @@ export const logoutUserApi = async () => {
 
 export const getUserInfoApi = async (userToken) => {
   try {
-    const { data } = await axios.get(pathes.USER_INFO);
     token.set(userToken);
+    const { data } = await axios.get(pathes.USER_INFO);
     return data;
   } catch (error) {
     throw error;

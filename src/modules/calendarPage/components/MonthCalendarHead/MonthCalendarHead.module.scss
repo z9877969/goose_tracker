@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  padding: 0 60px;
+  justify-content: space-between;
+  border-radius: 8px;
+  background-color: var(--main-white-color);
+  margin-bottom: 15px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #616161;
+
+  &:nth-child(7n + 6),
+  &:nth-child(7n + 7) {
+    color: var(--main-blue-color);
+  }
+}

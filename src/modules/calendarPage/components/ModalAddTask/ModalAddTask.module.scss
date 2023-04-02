@@ -1,0 +1,109 @@
+@import "../../../../shared/styles/mixins";
+
+.form {
+  width: 396px;
+  height: 352px;
+  background-color: var(--main-white-color);
+  padding: 40px 28px;
+  border-radius: 8px;
+}
+
+.timeFields {
+  display: flex;
+  column-gap: 14px;
+  margin-top: 18px;
+}
+
+.priorityList {
+  display: flex;
+  column-gap: 16px;
+  margin-top: 29px;
+  margin-bottom: 32px;
+}
+
+.priorityItem {
+  & label {
+    position: relative;
+    padding-left: 18px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    color: #616161;
+
+    &::after,
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+
+    &::before {
+      width: 8.5px;
+      height: 8.5px;
+      left: 2px;
+    }
+
+    &.low::before {
+      background-color: #72c2f8;
+    }
+    &.medium::before {
+      background-color: #f3b249;
+    }
+    &.high::before {
+      background-color: #ea3d65;
+      left: 1.5px;
+    }
+
+    &::after {
+      width: 12px;
+      height: 12px;
+      left: 0;
+    }
+  }
+
+  & input {
+    @include visually-hidden;
+
+    &:checked + label {
+      &.low::after {
+        border: 1px solid #72c2f850;
+      }
+      &.medium::after {
+        border: 1px solid #f3b24950;
+      }
+      &.high::after {
+        border: 1px solid #ea3d6550;
+      }
+    }
+  }
+}
+
+.btnWrapper {
+  display: flex;
+  column-gap: 14px;
+}
+
+.btnAdd {
+  background-color: var(--main-blue-color);
+  color: var(--main-white-color);
+  column-gap: 8px;
+  border-radius: 8px;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--main-white-color);
+  }
+}
+
+.btnCancel {
+  border-radius: 8px;
+  background-color: #efefef;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #111111;
+}

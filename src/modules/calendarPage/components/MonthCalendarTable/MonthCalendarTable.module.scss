@@ -1,0 +1,78 @@
+.wrapper {
+  // background-color: aquamarine;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: var(--main-white-color);
+}
+
+.datesRow {
+  border-top: 1px solid #dce3e5cc;
+  &:last-child {
+    border-bottom: 1px solid #dce3e5cc;
+  }
+
+  &:first-child {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+  }
+
+  &:last-child {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+}
+
+.weekDates {
+  display: flex;
+}
+
+.dateItem {
+  width: 156px;
+  height: 125px;
+  padding: 8px;
+  padding-top: 14px;
+  border-left: 1px solid #dce3e5cc;
+
+  &:last-child {
+    border-right: 1px solid #dce3e5cc;
+  }
+
+  &.firstLeft {
+    border-top-left-radius: 8px;
+  }
+  &.firstRight {
+    border-top-right-radius: 8px;
+  }
+  &.lastLeft {
+    border-bottom-left-radius: 8px;
+  }
+  &.lastRight {
+    border-bottom-right-radius: 8px;
+  }
+}
+
+.date {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+  margin-left: auto;
+  border-radius: 8px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #343434;
+
+  &.current {
+    background-color: var(--main-blue-color);
+    color: var(--main-white-color);
+  }
+}

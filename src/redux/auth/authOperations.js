@@ -66,17 +66,20 @@ export const getUserInfo = createAsyncThunk(
       const data = await getUserInfoApi(accessToken);
       return data;
     } catch (error) {
-      // setTimeout(() => {
-      //   dispatch(logoutUserAction());
-      // }, 0);
+      setTimeout(() => {
+        dispatch(logoutUserAction());
+      }, 0);
       return rejectWithValue(error.message);
     }
   },
   {
     condition(_, { getState }) {
-      const { accessToken } = getState().auth;
+      const {
+        accessToken,
+        user: { email },
+      } = getState().auth;
 
-      return Boolean(accessToken);
+      return Boolean(accessToken) && !email;
     },
   }
 );

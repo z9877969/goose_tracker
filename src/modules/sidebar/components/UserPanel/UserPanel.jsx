@@ -22,7 +22,8 @@ const UserPanel = () => {
         </li>
         <li>
           <NavLink
-            to={`${routes.CALENDAR}/${routes.CALENDAR_MONTH}`}
+            // to={`${routes.CALENDAR}/${routes.CALENDAR_MONTH}`}
+            to={`${routes.CALENDAR}`}
             className={getActiveClassName}
           >
             <svg>

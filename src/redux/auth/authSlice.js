@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  getUserInfo,
   loginUser,
   logoutUser,
   registerUser,
@@ -64,6 +65,10 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.rejected, () => {
         return { ...initialState };
+      })
+      .addCase(getUserInfo.fulfilled, (state, { payload }) => {
+        const { email, name, userImgUrl, phone, skype, birthday } = payload;
+        state.user = { email, name, userImgUrl, phone, skype, birthday };
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
         return { ...state, ...payload };
