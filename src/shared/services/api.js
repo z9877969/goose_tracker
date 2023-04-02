@@ -19,6 +19,8 @@ const pathes = {
   LOGOUT: "/user/logout",
   USER_INFO: "/user/info",
   UPDATE_USER: "/user/update",
+  CREATE_TASK: "/task",
+  GET_TASKS: "/task/by-month",
 };
 
 export const loginUserApi = async (user) => {
@@ -74,6 +76,24 @@ export const getUserInfoApi = async (userToken) => {
 export const updateUserApi = async (userData) => {
   try {
     const { data } = await axios.patch(pathes.UPDATE_USER, userData);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createTaskApi = async (task) => {
+  try {
+    const { data } = await axios.post(pathes.CREATE_TASK, task);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getTasksApi = async () => {
+  try {
+    const { data } = await axios.get(pathes.GET_TASKS);
     return data;
   } catch (error) {
     throw error;

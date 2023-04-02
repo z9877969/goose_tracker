@@ -47,13 +47,13 @@
     }
 
     &.low::before {
-      background-color: #72c2f8;
+      background-color: var(--low-priority-color);
     }
     &.medium::before {
-      background-color: #f3b249;
+      background-color: var(--medium-priority-color);
     }
     &.high::before {
-      background-color: #ea3d65;
+      background-color: var(--high-priority-color);
       left: 1.5px;
     }
 

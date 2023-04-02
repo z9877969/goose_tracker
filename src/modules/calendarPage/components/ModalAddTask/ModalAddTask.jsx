@@ -1,7 +1,11 @@
 import { useFormik } from "formik";
 import { LabeledInput } from "modules/accountPage/components/LabeledInput/LabeledInput";
 import moment from "moment";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { createTask } from "redux/tasks/tasksOperations";
+import { selectorTasksQuantity } from "redux/tasks/tasksSelectors";
 import { Button } from "shared/components";
 import Modal from "shared/components/Modal/Modal";
 import { sprite } from "shared/icons";
@@ -13,20 +17,26 @@ const initialValues = {
   start: null,
   end: null,
   priority: null,
-  //   category: "to-do",
-  //   date: "2023-03-17",
 };
 
-const ModalAddTask = ({ closeModal }) => {
+const ModalAddTask = () => {
+  const d = useDispatch();
+  const navigate = useNavigate();
+  const { curDate } = useParams();
+
+  const tasksQuantity = useSelector(selectorTasksQuantity);
+
+  const tasksQuantityRef = useRef(tasksQuantity);
+
   const formik = useFormik({
     initialValues,
     onSubmit: (values) => {
       const newTask = {
         ...values,
         category: "to-do",
-        date: moment().format("YYYY-MM-DD"),
+        date: curDate,
       };
-      console.log("newTask :>> ", newTask);
+      d(createTask(newTask));
     },
   });
 
@@ -46,6 +56,16 @@ const ModalAddTask = ({ closeModal }) => {
     },
     [setFieldValue]
   );
+
+  const closeModal = useCallback(() => {
+    navigate(-1);
+  }, [navigate]);
+
+  useEffect(() => {
+    if (tasksQuantity !== tasksQuantityRef.current) {
+      closeModal();
+    }
+  }, [tasksQuantity, closeModal]);
 
   return (
     <Modal closeModal={closeModal}>
@@ -113,7 +133,11 @@ const ModalAddTask = ({ closeModal }) => {
             </svg>
             Add
           </Button>
-          <Button title={"Cancel"} className={s.btnCancel} />
+          <Button
+            title={"Cancel"}
+            className={s.btnCancel}
+            onClick={closeModal}
+          />
         </div>
       </form>
     </Modal>

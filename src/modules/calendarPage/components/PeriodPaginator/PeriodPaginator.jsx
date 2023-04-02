@@ -13,8 +13,8 @@ export const PeriodPaginator = ({ periodType, date, setDate }) => {
   };
 
   const handleNextPeriod = () => {
-    const prevPeriodDate = changeDatebyPeriod.toNext(date, periodType);
-    setDate(prevPeriodDate);
+    const nextPeriodDate = changeDatebyPeriod.toNext(date, periodType);
+    setDate(nextPeriodDate);
   };
 
   return (

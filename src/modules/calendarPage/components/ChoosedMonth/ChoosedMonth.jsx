@@ -1,22 +1,18 @@
-import { useCallback, useState } from "react";
-import ModalAddTask from "../ModalAddTask/ModalAddTask";
+import { useSelector } from "react-redux";
+import { Outlet } from "react-router-dom";
+import { selectorTasks } from "redux/tasks/tasksSelectors";
 import MonthCalendarHead from "../MonthCalendarHead/MonthCalendarHead";
 import MonthCalendarTable from "../MonthCalendarTable/MonthCalendarTable";
-// import s from "./ChoosedMonth.module.scss";
 
 const ChoosedMonth = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const tasks = useSelector(selectorTasks);
 
-  const toggleModal = useCallback(
-    () => setIsModalOpen((p) => !p),
-    [setIsModalOpen]
-  );
-
+  // const filteredTasksByMonth = 
   return (
     <>
       <MonthCalendarHead />
-      <MonthCalendarTable openModal={toggleModal} />
-      {isModalOpen && <ModalAddTask closeModal={toggleModal} />}
+      <MonthCalendarTable />
+      <Outlet />
     </>
   );
 };

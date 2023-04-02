@@ -1,18 +1,31 @@
-import { useState } from "react";
-import moment from "moment";
 import { useCalendarPeriod } from "shared/hooks/useCalendarPeriod";
 import { PeriodPaginator } from "../PeriodPaginator/PeriodPaginator";
 import { PeriodTypeSelect } from "../PeriodTypeSelect/PeriodTypeSelect";
 import s from "./CalendarToolbars.module.scss";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export const CalendarToolbars = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const periodType = useCalendarPeriod();
 
-  const [date, setDate] = useState(() => moment().format("YYYY-MM-DD"));
+  const { curDate } = useParams();
+
+  const setDate = (date) => {
+    const pathnameArr = location.pathname.split("/");
+    pathnameArr[pathnameArr.length - 1] = date;
+
+    navigate({ pathname: pathnameArr.join("/") });
+  };
 
   return (
     <div className={s.wrapper}>
-      <PeriodPaginator periodType={periodType} date={date} setDate={setDate} />
+      <PeriodPaginator
+        periodType={periodType}
+        date={curDate}
+        setDate={setDate}
+      />
       <PeriodTypeSelect />
     </div>
   );

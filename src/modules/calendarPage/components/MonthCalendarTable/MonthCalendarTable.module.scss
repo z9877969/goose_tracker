@@ -37,6 +37,8 @@
   padding-top: 14px;
   border-left: 1px solid #dce3e5cc;
 
+  overflow: hidden;
+
   &:last-child {
     border-right: 1px solid #dce3e5cc;
   }
@@ -74,5 +76,35 @@
   &.current {
     background-color: var(--main-blue-color);
     color: var(--main-white-color);
+  }
+}
+
+.task {
+  height: 26px;
+  border-radius: 8px;
+
+  padding: 4px 12px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+
+  overflow: hidden;
+
+  &.low {
+    color: var(--low-priority-color);
+    background-color: #ceeefd;
+  }
+  &.medium {
+    color: var(--medium-priority-color);
+    background-color: #fcf0d4;
+  }
+  &.high {
+    color: var(--high-priority-color);
+    background-color: #ffd2dd;
+  }
+
+  &:not(:last-child){
+    margin-bottom: 2px;
   }
 }

@@ -6,16 +6,19 @@ import App from "./App";
 import { store, persistor } from "./redux/store";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
+import { LoaderProvider } from "context/LoaderProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <BrowserRouter>
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <BrowserRouter>
+        <LoaderProvider>
           <App />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+        </LoaderProvider>
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
   // </React.StrictMode>
 );
