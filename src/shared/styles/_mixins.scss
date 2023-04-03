@@ -43,3 +43,20 @@
   background-color: var(--main-white-color);
   border-radius: 16px;
 }
+
+@mixin scrollbar {
+  overflow-y: scroll;
+  scrollbar-width: 8px;
+
+  &::-webkit-scrollbar {
+    width: 8px; /* ширина всей полосы прокрутки */
+  }
+  &::-webkit-scrollbar-track {
+    background: #e7e5e550; /* цвет зоны отслеживания */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #e7e5e5; /* цвет бегунка */
+    border-radius: 4px; /* округлось бегунка */
+    // border: 1px solid orange; /* отступ вокруг бегунка */
+  }
+}

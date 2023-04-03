@@ -1,29 +1,13 @@
-.wrapper {
-  // background-color: aquamarine;
-}
+@import "../../../../shared/styles/mixins";
 
 .calendar {
   display: flex;
   flex-direction: column;
+  height: 603px;
   border-radius: 8px;
   background-color: var(--main-white-color);
-}
-
-.datesRow {
-  border-top: 1px solid #dce3e5cc;
-  &:last-child {
-    border-bottom: 1px solid #dce3e5cc;
-  }
-
-  &:first-child {
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-  }
-
-  &:last-child {
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-  }
+  border: 1px solid #dce3e5cc;
+  @include scrollbar;
 }
 
 .weekDates {
@@ -35,25 +19,27 @@
   height: 125px;
   padding: 8px;
   padding-top: 14px;
-  border-left: 1px solid #dce3e5cc;
-
+  border: 1px solid #dce3e5cc;
   overflow: hidden;
 
-  &:last-child {
-    border-right: 1px solid #dce3e5cc;
-  }
+  border-left: none;
+  border-bottom: none;
 
-  &.firstLeft {
-    border-top-left-radius: 8px;
+  &:last-child {
+    border-right: none;
   }
-  &.firstRight {
-    border-top-right-radius: 8px;
+}
+
+.hoverItem:hover {
+  cursor: pointer;
+}
+
+.datesRow {
+  &:first-child .dateItem {
+    border-top: none;
   }
-  &.lastLeft {
-    border-bottom-left-radius: 8px;
-  }
-  &.lastRight {
-    border-bottom-right-radius: 8px;
+  &:last-child .dateItem {
+    border-bottom: none;
   }
 }
 
@@ -104,7 +90,7 @@
     background-color: #ffd2dd;
   }
 
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-bottom: 2px;
   }
 }

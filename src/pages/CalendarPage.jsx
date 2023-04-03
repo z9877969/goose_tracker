@@ -10,8 +10,8 @@ import { routes } from "shared/services/routes";
 
 const CalendarPage = () => {
   const d = useDispatch();
-  const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const isUserExist = useSelector(selectorIsUserExist);
 
   useEffect(() => {

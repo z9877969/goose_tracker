@@ -1,0 +1,53 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 14px;
+  padding-right: 4px;
+
+  background-color: var(--main-white-color);
+  border-radius: 8px;
+}
+
+.weekDayItem {
+  &:first-child,
+  &:not(:first-child) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &:first-child {
+    width: 65px;
+    padding-left: 18px;
+  }
+
+  &:not(:first-child) {
+    width: 146px;
+  }
+
+  & span:first-child,
+  &:first-child span:first-child {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #616161;
+
+    margin-bottom: 8px;
+  }
+
+  & span:last-child {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #343434;
+  }
+
+  &:nth-child(8n + 7) span:first-child,
+  &:nth-child(8n + 8) span:first-child {
+    color: var(--main-blue-color);
+  }
+}

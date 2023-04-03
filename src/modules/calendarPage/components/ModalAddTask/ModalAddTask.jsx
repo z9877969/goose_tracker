@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import { LabeledInput } from "modules/accountPage/components/LabeledInput/LabeledInput";
-import moment from "moment";
 import { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -19,7 +18,7 @@ const initialValues = {
   priority: null,
 };
 
-const ModalAddTask = () => {
+export const ModalAddTask = () => {
   const d = useDispatch();
   const navigate = useNavigate();
   const { curDate } = useParams();
@@ -143,5 +142,3 @@ const ModalAddTask = () => {
     </Modal>
   );
 };
-
-export default ModalAddTask;

@@ -1,0 +1,90 @@
+.table {
+  display: flex;
+  height: 603px;
+  background-color: var(--main-white-color);
+  border-radius: 8px;
+  overflow-y: scroll;
+  scrollbar-width: 8px;
+
+  &::-webkit-scrollbar {
+    width: 8px; /* ширина всей полосы прокрутки */
+  }
+  &::-webkit-scrollbar-track {
+    background: #e7e5e550; /* цвет зоны отслеживания */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #e7e5e5; /* цвет бегунка */
+    border-radius: 4px; /* округлось бегунка */
+    // border: 1px solid orange; /* отступ вокруг бегунка */
+  }
+}
+
+.table,
+.timeItem,
+.dayItem {
+  border: 1px solid #dce3e5cc;
+}
+
+.timeColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeItem {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 30px;
+
+  border-left: none;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #343434;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.dayColumn {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+
+  &:not(:first-child) {
+    width: 146px;
+  }
+
+  &:last-child .dayItem {
+    border-right: none;
+  }
+}
+
+.dayItem {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &:first-child {
+    border-top: none;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.timeItem,
+.dayItem {
+  border-left: none;
+  border-bottom: none;
+}
