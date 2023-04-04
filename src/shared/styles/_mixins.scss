@@ -44,8 +44,8 @@
   border-radius: 16px;
 }
 
-@mixin scrollbar {
-  overflow-y: scroll;
+@mixin scrollbar($_direction) {
+  overflow-#{$_direction}: scroll;
   scrollbar-width: 8px;
 
   &::-webkit-scrollbar {
@@ -58,5 +58,18 @@
     background-color: #e7e5e5; /* цвет бегунка */
     border-radius: 4px; /* округлось бегунка */
     // border: 1px solid orange; /* отступ вокруг бегунка */
+  }
+}
+
+@mixin week-task-height($_selector) {
+  @for $i from 0 through 96 {
+    // @if $i == 0 {
+    //   #{$_selector}-#{$i} {
+    //     display: ;
+    //   }  
+    // }
+    #{$_selector}-#{$i} {
+      height: 15px * $i;
+    }
   }
 }

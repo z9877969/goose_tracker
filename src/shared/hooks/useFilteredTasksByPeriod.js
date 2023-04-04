@@ -23,11 +23,15 @@ export const useFilteredTasksByPeriod = (period) => {
           }, {});
       case routes.CALENDAR_WEEK:
         const weekDates = getDatesByWeek(curDate);
-        // example return -> filteredTasksByMonth = {"2023-03-24": {date: "2023-03-24", tasks:[]}}
+        // example return ->
+        // filteredTasksByWeek = {"2023-03-24": {date: "2023-03-24", tasks: []}}
         return tasks
-          .filter((el) => weekDates[el.date])
-          .reduce((acc, el) => {
-            acc[el.date] = el;
+          .filter((dayWithTasks) => weekDates[dayWithTasks.date])
+          .reduce((acc, { date, tasks }) => {
+            const tasksMap = [...tasks].sort((a, b) =>
+              a.start.localeCompare(b.start)
+            );
+            acc[date] = { date, tasks: tasksMap };
             return acc;
           }, {});
       default:

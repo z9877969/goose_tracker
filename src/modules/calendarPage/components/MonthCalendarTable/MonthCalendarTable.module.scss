@@ -7,7 +7,7 @@
   border-radius: 8px;
   background-color: var(--main-white-color);
   border: 1px solid #dce3e5cc;
-  @include scrollbar;
+  @include scrollbar(y);
 }
 
 .weekDates {
