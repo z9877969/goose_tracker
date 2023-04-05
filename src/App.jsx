@@ -52,6 +52,7 @@ const App = () => {
               element={<ChoosedDay />}
             >
               <Route path={"add"} element={<ModalAddTask />} />
+              <Route path={"edit"} element={<ModalAddTask />} />
             </Route>
           </Route>
           <Route path="*" element={<Navigate to={`${routes.CALENDAR}`} />} />

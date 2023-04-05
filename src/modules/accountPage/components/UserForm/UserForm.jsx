@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "redux/auth/authOperations";
 import { selectorUser } from "redux/auth/authSelectors";
@@ -23,10 +23,14 @@ export const UserForm = () => {
 
   const userFormData = useSelector(selectorUser);
 
+  const formRef = useRef(null);
+
   const formik = useFormik({
     initialValues: userFormData,
     onSubmit: (v) => {
-      const formData = new FormData(v);
+      const formData = new FormData(formRef.current);
+      formData.delete("file");
+      formData.append("userImgUrl", v.userImgUrl);
       d(updateUser(formData));
     },
   });
@@ -35,6 +39,7 @@ export const UserForm = () => {
     handleChange,
     handleSubmit,
     setFieldValue,
+    setValues,
   } = formik;
 
   const setAvatar = useCallback(
@@ -51,8 +56,12 @@ export const UserForm = () => {
   const userContactsFormData = { phone, skype };
   const userAvatarFormData = { name, userImgUrl };
 
+  useEffect(() => {
+    setValues({ ...userFormData });
+  }, [userFormData, setValues]);
+
   return (
-    <form className={s.formWrapper} onSubmit={handleSubmit}>
+    <form ref={formRef} className={s.formWrapper} onSubmit={handleSubmit}>
       <div className={s.fieldsWrapper}>
         <UserAvatarField setAvatar={setAvatar} formData={userAvatarFormData} />
         <div className={s.dataFieldsWrapper}>

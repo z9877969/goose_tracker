@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
-import CalendarDates from "calendar-dates";
 import clsx from "clsx";
 import s from "./MonthCalendarTable.module.scss";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { routes } from "shared/services/routes";
 import { useFilteredTasksByPeriod } from "shared/hooks/useFilteredTasksByPeriod";
+import { useCalendarDates } from "shared/hooks/useCalendarDates";
 
 const MonthCalendarTable = () => {
   const navigate = useNavigate();
-  const { curDate } = useParams();
 
-  const [dates, setDates] = useState(null);
+  const dates = useCalendarDates();
 
   const handleOpenModalForm = (e) => (iso) => {
     if (e.target === e.currentTarget) {
@@ -21,15 +19,6 @@ const MonthCalendarTable = () => {
   };
 
   const filteredTasksByMonth = useFilteredTasksByPeriod(routes.CALENDAR_MONTH);
-
-  useEffect(() => {
-    const calendarDates = new CalendarDates();
-    const setCalendarDates = async () => {
-      const datesMatrix = await calendarDates.getMatrix(new Date(curDate));
-      setDates(datesMatrix);
-    };
-    setCalendarDates();
-  }, [curDate]);
 
   return (
     dates && (

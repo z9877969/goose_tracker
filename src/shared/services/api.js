@@ -4,7 +4,6 @@ axios.defaults.baseURL = "https://goose-tracker-backend.p.goit.global";
 
 const token = {
   set(token) {
-    // console.log("token :>> ", token);
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
@@ -19,7 +18,7 @@ const pathes = {
   LOGOUT: "/user/logout",
   USER_INFO: "/user/info",
   UPDATE_USER: "/user/update",
-  CREATE_TASK: "/task",
+  TASK: "/task",
   GET_TASKS: "/task/by-month",
 };
 
@@ -84,7 +83,7 @@ export const updateUserApi = async (userData) => {
 
 export const createTaskApi = async (task) => {
   try {
-    const { data } = await axios.post(pathes.CREATE_TASK, task);
+    const { data } = await axios.post(pathes.TASK, task);
     return data;
   } catch (error) {
     throw error;
@@ -95,6 +94,24 @@ export const getTasksApi = async () => {
   try {
     const { data } = await axios.get(pathes.GET_TASKS);
     return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateTasksApi = async ({ taskData, id }) => {
+  try {
+    const { data } = await axios.put(pathes.TASK + "/" + id, taskData);
+    return data.task;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const removeTasksApi = async (id) => {
+  try {
+    await axios.delete(pathes.TASK + "/" + id);
+    return id;
   } catch (error) {
     throw error;
   }

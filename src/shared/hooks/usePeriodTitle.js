@@ -23,7 +23,7 @@ export const usePeriodTitle = (periodType, date) => {
           ? `${firstDayDate} ${firstDayMonth} ${firstDayYear} - ${lastDayDate} ${lastDayMonth} ${lastDayYear}`
           : `${firstDayDate} - ${lastDayDate} ${lastDayMonth} ${firstDayYear}`;
       case routes.CALENDAR_DAY:
-        return moment(date).utc().format("DD MMMM YYYY");
+        return moment(date).format("DD MMMM YYYY");
       default:
         return;
     }
