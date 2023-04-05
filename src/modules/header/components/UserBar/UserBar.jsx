@@ -8,12 +8,12 @@ export const UserBar = () => {
   return (
     <div className={s.wrapper}>
       <h2 className={s.userName}>{user.name}</h2>
-      {!user.imageUrl ? (
+      {!user.userImgUrl ? (
         <p className={clsx(s.avatar, s.userName)}>
           {user.name?.slice(0, 1).toUpperCase()}
         </p>
       ) : (
-        <img className={s.avatar} src={user.imageUrl} alt="" />
+        <img className={s.avatar} src={user.userImgUrl} alt="" />
       )}
     </div>
   );
