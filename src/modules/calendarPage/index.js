@@ -3,3 +3,4 @@ export { CalendarPageWrapper } from "./components/CalendarPageWrapper/CalendarPa
 export { ModalAddTask } from "./components/ModalAddTask/ModalAddTask";
 export { ChoosedMonth } from "./components/ChoosedMonth/ChoosedMonth";
 export { ChoosedWeek } from "./components/ChoosedWeek/ChoosedWeek";
+export { ChoosedDay } from "./components/ChoosedDay/ChoosedDay";

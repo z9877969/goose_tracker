@@ -1,6 +1,4 @@
-import { getWeekDates } from "modules/calendarPage/helpers/getWeekDates";
-import { useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useWeekDates } from "shared/hooks/useWeekDates";
 import { WeekCalendarHead } from "../WeekCalendarHead/WeekCalendarHead";
 import { WeekCalendarTable } from "../WeekCalendarTable/WeekCalendarTable";
 
@@ -11,13 +9,12 @@ const tableStyles = {
 };
 
 export const ChoosedWeek = () => {
-  const { curDate } = useParams();
-  const weekDates = useMemo(() => getWeekDates(curDate), [curDate]);
+  const weekDates = useWeekDates();
 
   return (
     <table style={tableStyles}>
       <WeekCalendarHead weekDates={weekDates} />
-      <WeekCalendarTable weekDates={weekDates}/>
+      <WeekCalendarTable weekDates={weekDates} />
     </table>
   );
 };

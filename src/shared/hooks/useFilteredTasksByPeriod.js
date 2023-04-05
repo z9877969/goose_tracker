@@ -34,6 +34,20 @@ export const useFilteredTasksByPeriod = (period) => {
             acc[date] = { date, tasks: tasksMap };
             return acc;
           }, {});
+      case routes.CALENDAR_DAY:
+        const dayTasks = tasks.find((el) => el.date === curDate);
+        // example return ->
+        // filteredTasksByDay = {"to-do": [{...taskData}]}
+        return dayTasks
+          ? dayTasks.tasks.reduce((acc, el) => {
+              if (!acc[el.category]) {
+                acc[el.category] = [el];
+              } else {
+                acc[el.category].push(el);
+              }
+              return acc;
+            }, {})
+          : {};
       default:
         break;
     }

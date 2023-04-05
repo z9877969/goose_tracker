@@ -1,0 +1,73 @@
+.card {
+  padding: 14px;
+  background: #f7f6f9;
+  border: 1px solid #dce3e5cc;
+  border-radius: 8px;
+}
+
+.descr {
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #111111;
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.infoBar {
+  display: flex;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border: 1.8px solid var(--main-blue-color);
+  border-radius: 50%;
+}
+
+.priority {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  color: #f7f6f9;
+  align-self: flex-end;
+
+  &.low {
+    background-color: var(--low-priority-color);
+  }
+  &.medium {
+    background-color: var(--medium-priority-color);
+  }
+  &.high {
+    background-color: var(--high-priority-color);
+  }
+}
+
+.toolsbar {
+  width: 76px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolsBarBtn {
+  width: 20px;
+  height: 20px;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+    stroke: #111111;
+    fill: none;
+  }
+}

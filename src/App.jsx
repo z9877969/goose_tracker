@@ -2,7 +2,12 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { LoginPage, AccountPage, CalendarPage, RegisterPage } from "./pages";
-import { ChoosedMonth, ChoosedWeek, ModalAddTask } from "modules/calendarPage";
+import {
+  ChoosedDay,
+  ChoosedMonth,
+  ChoosedWeek,
+  ModalAddTask,
+} from "modules/calendarPage";
 import { MainLayout } from "shared/components";
 import { PrivateRoute, PublicRoute } from "shared/containers";
 import { routes } from "shared/services/routes";
@@ -44,8 +49,10 @@ const App = () => {
             </Route>
             <Route
               path={routes.CALENDAR_DAY + "/:curDate"}
-              element={<h2>ChoosedDay</h2>}
-            />
+              element={<ChoosedDay />}
+            >
+              <Route path={"add"} element={<ModalAddTask />} />
+            </Route>
           </Route>
           <Route path="*" element={<Navigate to={`${routes.CALENDAR}`} />} />
         </Route>
